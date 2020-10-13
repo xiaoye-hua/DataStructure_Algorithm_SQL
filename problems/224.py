@@ -37,6 +37,7 @@ class Solution:
                 stack[-1] += string
             elif string != " ":
                 stack.append(string)
+            # print(stack)
         return stack[-1]
 
 

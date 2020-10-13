@@ -14,6 +14,7 @@ class Solution:
     def addOperators(self, num: str, target: int) -> List[str]:
         """
         Inspired from discussion: https://leetcode.com/problems/expression-add-operators/discuss/310707/Clean-Python-DFS-solution
+            convert all operations to summation
         :param num:
         :param target:
         :return:
