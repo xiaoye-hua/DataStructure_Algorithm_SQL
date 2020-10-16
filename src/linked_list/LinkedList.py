@@ -20,6 +20,9 @@ class LinkedList:
 
     @staticmethod
     def print_linkedlist(node: ListNode):
+        lst = []
         while node:
-            print(node.val)
+            # print(node.val)
+            lst.append(node.val)
             node = node.next
+        print(lst)
