@@ -44,28 +44,56 @@ class Solution:
     #         else:
     #             return False
 
+    # def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+    #     """
+    #     Approch one : dynamic programming: 28ms
+    #     :param s:
+    #     :param wordDict:
+    #     :return:
+    #     """
+    #     dp = [False for _ in range(len(s))]
+    #     for idx in range(len(s)):
+    #         # res_lst = []
+    #         for word in wordDict:
+    #             res = None
+    #             length = len(word)
+    #             if idx == length-1 and s[:idx+1] == word:
+    #                 res = True
+    #             elif idx >length-1 and s[idx+1-length:idx+1] == word:
+    #                 res = dp[idx-length]
+    #             if res:
+    #                 dp[idx] = res
+    #                 break
+    #     # print(dp)
+    #     return dp[-1]
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         """
-        Approch one : dynamic programming
+        Approch three : divide and conquer with memory:
         :param s:
         :param wordDict:
         :return:
         """
-        dp = [False for _ in range(len(s))]
-        for idx in range(len(s)):
-            # res_lst = []
-            for word in wordDict:
-                res = None
-                length = len(word)
-                if idx == length-1 and s[:idx+1] == word:
-                    res = True
-                elif idx >length-1 and s[idx+1-length:idx+1] == word:
-                    res = dp[idx-length]
-                if res:
-                    dp[idx] = res
-                    break
-        # print(dp)
-        return dp[-1]
+        self.wordDict = set(wordDict)
+        self.mem = set()
+        return self.divide_conquer(s)
+
+    def divide_conquer(self, s):
+        if s in self.mem:
+            return True
+        if s in self.wordDict:
+            self.mem.update(s)
+            return True
+            # ans.append(s)
+        for idx in range(1, len(s)):
+            right = s[idx:]
+            if right not in self.wordDict and right not in self.mem:
+                continue
+            if self.divide_conquer(s[:idx]):
+                self.mem.update(s)
+                return True
+            # ans += [w + " " + right for w in self.divide_conquer(s[:idx])]
+        # self.mem[s] = ans
+        return False
 
 
 s = "dogs"
