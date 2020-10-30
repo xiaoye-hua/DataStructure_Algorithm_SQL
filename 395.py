@@ -64,10 +64,24 @@ class Solution:
 
 
 
-
-
-
 s = "aacbbbdc"
 k = 2
 res = Solution().longestSubstring(s, k)
 print(res)
+
+# Input:
+# s = "aaabb", k = 3
+#
+# Output:
+# 3
+#
+# The longest substring is "aaa", as 'a' is repeated 3 times.
+# Example 2:
+#
+# Input:
+# s = "ababbc", k = 2
+#
+# Output:
+# 5
+#
+# The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3 times.

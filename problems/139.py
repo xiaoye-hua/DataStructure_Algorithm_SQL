@@ -8,7 +8,7 @@ from typing import List
 from src.linked_list.ListNode import ListNode
 from src.linked_list.LinkedList import LinkedList
 
-
+#
 class Solution:
     # def wordBreak(self, s: str, wordDict: List[str]) -> bool:
     #     """
@@ -74,29 +74,49 @@ class Solution:
         :return:
         """
         self.wordDict = set(wordDict)
-        self.mem = set()
+        self.mem = {}
         return self.divide_conquer(s)
 
     def divide_conquer(self, s):
         if s in self.mem:
-            return True
+            return self.mem[s]
         if s in self.wordDict:
-            self.mem.update(s)
+            self.mem[s] = True
             return True
             # ans.append(s)
         for idx in range(1, len(s)):
             right = s[idx:]
-            if right not in self.wordDict and right not in self.mem:
-                continue
-            if self.divide_conquer(s[:idx]):
-                self.mem.update(s)
+            if right in self.wordDict and self.divide_conquer(s[:idx]):
+                self.mem[s] = True
                 return True
+            # if self.divide_conquer(s[:idx]):
+            #     self.mem[s[:idx]] = True
+            #     return True
             # ans += [w + " " + right for w in self.divide_conquer(s[:idx])]
-        # self.mem[s] = ans
+        self.mem[s] = False
         return False
+# class Solution(object):
+#     def wordBreak(self, s, wordDict):
+#         def canBreak(s, m, wordDict):
+#             if s in m: return m[s]
+#             if s in wordDict:
+#                 m[s] = True
+#                 return True
+#
+#             for i in range(1, len(s)):
+#                 r = s[i:]
+#                 if r in wordDict and canBreak(s[0:i], m, wordDict):
+#                     m[s] = True
+#                     return True
+#
+#             m[s] = False
+#             return False
+#
+#         return canBreak(s, {}, set(wordDict))
 
-
-s = "dogs"
-wordDict = ["dog","s","gs"]
+# s = "dogs"
+# wordDict = ["dog","s","gs"]
+s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+wordDict = ["aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa","ba"]
 res = Solution().wordBreak(s, wordDict)
 print(res)
