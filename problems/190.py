@@ -13,16 +13,17 @@ from src.linked_list.LinkedList import LinkedList
 
 
 class Solution:
-    def getSum(self, a: int, b: int) -> int:
-        pass
+    def reverseBits(self, n: int) -> int:
+        bits = 32
+        res = 0
+        quotient = n
+        for idx in range(bits):
+            power = bits - idx -1
+            quotient, remainder = divmod(quotient, 2)
+            res += remainder * 2**power
+        return res
 
-# Input: a = 1, b = 2
-# Output: 3
-# Example 2:
-#
-# Input: a = -2, b = 3
-# Output: 1
-a = 1
-b = 2
-res = Solution().getSum(a, b)
+
+n = -3
+res = Solution().reverseBits(n)
 print(res)
