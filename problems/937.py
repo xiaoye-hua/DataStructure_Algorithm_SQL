@@ -25,7 +25,7 @@ class Solution:
                     ele.split(" ")
                 )
         str_log.sort(
-            key=lambda x: x[1:]
+            key=lambda x: x[1:] + [x[0]]
         )
         str_log = [" ".join(ele) for ele in str_log]
         str_log.extend(digit_log)
