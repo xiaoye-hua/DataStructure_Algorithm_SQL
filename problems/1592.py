@@ -14,7 +14,30 @@ from src.linked_list.LinkedList import LinkedList
 
 class Solution:
     def reorderSpaces(self, text: str) -> str:
-        pass
+        if not text:
+            return ""
+        words = []
+        space_num = 0
+        idx = 0
+        while idx < len(text):
+            ele = text[idx]
+            if ele == " ":
+                space_num +=1
+                idx += 1
+            else:
+                w = ""
+                while idx < len(text) and text[idx] != " ":
+                    w += text[idx]
+                    idx += 1
+                words.append(w)
+        res = None
+        if len(words) == 1:
+            res = words[-1] + " "*space_num
+        else:
+            quotient, remainder = divmod(space_num, len(words)-1)
+            seq = " "*quotient
+            res = seq.join(words) + " "*remainder
+        return res
 
 
 
@@ -27,6 +50,6 @@ class Solution:
 # Output: "practice   makes   perfect "
 # Explanation: There are a total of 7 spaces and 3 words. 7 / (3-1) = 3 spaces plus 1 extra space. We place this extra space at the end of the string.
 # s = "aaabb"
-text = "  this   is  a sentence "
+text = "a"
 res = Solution().reorderSpaces(text)
 print(res)

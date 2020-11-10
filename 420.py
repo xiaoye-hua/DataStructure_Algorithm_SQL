@@ -13,13 +13,9 @@ from src.linked_list.LinkedList import LinkedList
 
 
 class Solution:
-    def nextPermutation(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
+    def strongPasswordChecker(self, s: str) -> int:
         pass
 
 s = "aaabb"
-k = 3
-res = Solution().longestSubstring(s, k)
+res = Solution().strongPasswordChecker(s)
 print(res)
