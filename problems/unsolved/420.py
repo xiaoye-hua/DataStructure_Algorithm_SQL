@@ -14,8 +14,21 @@ from src.linked_list.LinkedList import LinkedList
 
 class Solution:
     def strongPasswordChecker(self, s: str) -> int:
-        pass
+        res = 0
+        if len(s) < 6 or len(s) > 20:
+            pass
+        digit_num = 0
+        low_num = 0
+        upper_num = 0
+        for ele in s:
+            if ele.isdigit():
+                digit_num += 1
+            elif ele.islower():
+                low_num += 1
+            elif ele.isupper():
+                upper_num += 1
 
-s = "aaabb"
+
+s = "a"
 res = Solution().strongPasswordChecker(s)
 print(res)
