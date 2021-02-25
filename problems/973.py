@@ -11,21 +11,40 @@ import string
 from src.linked_list.ListNode import ListNode
 from src.linked_list.LinkedList import LinkedList
 
+from src.MinHeap import MinHeap
+
 
 class Solution:
     def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
-        import heapq
-        # distances = [self.get_distance(lst) for lst in points]
-        max_heap  = []
+        """
+        approach 1:  heapq module
+        approach 2:  MinHeap
+        """
+        # import heapq
+        # # distances = [self.get_distance(lst) for lst in points]
+        # max_heap  = []
+        # for lst in points:
+        #     dis = self.get_distance(lst)
+        #     if len(max_heap) == K:
+        #         if dis < -max_heap[0][0]:
+        #             heapq.heappop(max_heap)
+        #             heapq.heappush(max_heap, [-dis, lst])
+        #     else:
+        #         heapq.heappush(max_heap, [-dis, lst])
+        # return [value[1] for value in max_heap]
+
+
+        # max_heap  = []
+        max_heap = MinHeap(list_input=True)
         for lst in points:
             dis = self.get_distance(lst)
-            if len(max_heap) == K:
-                if dis < -max_heap[0][0]:
-                    heapq.heappop(max_heap)
-                    heapq.heappush(max_heap, [-dis, lst])
+            if max_heap.size == K:
+                if dis < -max_heap.lst[1][0]:
+                    max_heap.pop()
+                    max_heap.push([-dis, lst])
             else:
-                heapq.heappush(max_heap, [-dis, lst])
-        return [value[1] for value in max_heap]
+                max_heap.push([-dis, lst])
+        return [value[1] for value in max_heap.lst[1:]]
 
     def get_distance(self, lst):
         import math
