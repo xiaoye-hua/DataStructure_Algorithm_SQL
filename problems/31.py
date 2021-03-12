@@ -12,48 +12,34 @@ from src.linked_list.ListNode import ListNode
 from src.linked_list.LinkedList import LinkedList
 
 
-class Solution(object):
-    def nextPermutation(self, nums):
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
         """
         inspired from discussion: https://leetcode.com/problems/next-permutation/discuss/229211/Python-solution
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
+        Two steps:
+            1. find index a, change nums[a] to a bigger number --> we can only find the target number on the right of index a (Otherwise, the whole number will be smaller)
+            2. change nums[a+1:] to the smallest number
         """
-        length = len(nums)
-        if length == 1:
+        if len(nums) == 0 or not nums:
             return
-        idx = length -1
-
-        while idx>=1:
-            # if nums[idx] < current_min:
-                # current_min = nums[idx]
-                # min_idx = idx
-            if nums[idx-1]>=nums[idx]:
-                idx -= 1
-            else:
-                break
-        # print(idx)
-        # idx -= 1
-        # print(idx)
-        if idx == 0:
+        idx = len(nums) -1
+        while nums[idx-1]>=nums[idx] and idx-1>=0:
+            idx -= 1
+        if idx-1<0:
             nums.reverse()
         else:
-            idx -= 1
-            min_idx = None
-            current_min = float("inf")
-            for current_idx in range(idx+1, len(nums)):
-                ele = nums[current_idx]
-                if ele > nums[idx] and ele < current_min:
-                    min_idx = current_idx
-                    current_min = ele
-            nums[idx], nums[min_idx] = nums[min_idx],  nums[idx]
-            # print(nums)
-            # print(idx)
-            for first_idx in range(idx+1, length-1):
-                for second_idx in range(first_idx+1, length):
-                    if nums[second_idx] < nums[first_idx]:
-                        nums[first_idx], nums[second_idx] = nums[second_idx], nums[first_idx]
-
+            target_idx = idx-1
+            idx = len(nums) - 1
+            while nums[idx] <= nums[target_idx]:
+                idx -= 1
+            nums[idx], nums[target_idx] = nums[target_idx], nums[idx]
+            begin_idx, end_idx = target_idx+1, len(nums)-1
+            while end_idx-begin_idx>=1:
+                nums[begin_idx], nums[end_idx] = nums[end_idx], nums[begin_idx]
+                begin_idx += 1
+                end_idx -= 1
 
 
 
@@ -80,7 +66,7 @@ class Solution(object):
 # Expected
 # [2,1,3]
 
-nums = [2, 3, 1]
+nums = [1, 3, 2]
 # expected: [2, 3, 2, 1, 4, 5]
 res = Solution().nextPermutation(nums)
 print(nums)
