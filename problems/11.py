@@ -14,17 +14,46 @@ from src.linked_list.LinkedList import LinkedList
 
 class Solution:
     def maxArea(self, height: List[int]) -> int:
+        """
+        为啥非得移动短的那个？？ 为啥第二种方法不对？？
+        """
         res = 0
-        if len(height) < 2:
-            return res
-        begin, end = 0, len(height)-1
-        while end>begin:
-            res = max(res, (end-begin)*min(height[begin], height[end]))
-            if height[begin]>=height[end]:
-                end -= 1
+        begin_idx = 0
+        end_idx = len(height) - 1
+        while end_idx != begin_idx:
+            # if heght[begin_idx]<height[]
+            res = max(res, (end_idx - begin_idx) * min(height[end_idx], height[begin_idx]))
+            if height[begin_idx] < height[end_idx]:
+                begin_idx += 1
             else:
-                begin += 1
+                end_idx -= 1
         return res
+
+
+#         res = 0
+#         begin_idx = 0
+#         end_idx = len(height)-1
+#         while end_idx != begin_idx:
+#             # if heght[begin_idx]<height[]
+
+#             res = max(res, (end_idx-begin_idx)*min(height[end_idx], height[begin_idx]))
+#             if height[begin_idx]<height[end_idx]:
+#                 if height[begin_idx+1] >= height[begin_idx]:
+#                     begin_idx += 1
+#                 else:
+#                     if height[begin_idx+1] > height[end_idx-1]:
+#                         begin_idx += 1
+#                     else:
+#                         end_idx -= 1
+#             else:
+#                 if height[end_idx-1] >= height[end_idx]:
+#                     end_idx -= 1
+#                 else:
+#                     if height[end_idx-1] > height[begin_idx+1]:
+#                         end_idx -= 1
+#                     else:
+#                         begin_idx += 1
+#         return res
 
 #
 # Input: height = [1,8,6,2,5,4,8,3,7]
