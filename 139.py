@@ -28,3 +28,10 @@ class Solution:
                     dp[cur_idx] = dp[cur_idx-word_len]
                 word_idx += 1
         return dp[-1]
+
+
+s = "aaaaaaa"
+wordDict = ["aaaa","aaa"]
+
+res = Solution().wordBreak(s, wordDict)
+print(res)
