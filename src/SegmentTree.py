@@ -3,6 +3,8 @@
 # @Time    : 2020/11/1 1:37 下午
 # @Author  : guohua08
 # @File    : SegmentTree.py
+
+
 class SegmentTreeNode:
     def __init__(self, value=None, start=None, end=None, left=None, right=None):
         self.value = value

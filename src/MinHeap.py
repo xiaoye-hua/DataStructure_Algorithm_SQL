@@ -18,7 +18,6 @@ class MinHeap:
         self.size = 0
         self.list_input = list_input
 
-
     def push(self, value):
         self.lst.append(value)
         self.size += 1
