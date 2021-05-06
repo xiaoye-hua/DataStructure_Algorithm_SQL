@@ -14,7 +14,20 @@ from src.linked_list.LinkedList import LinkedList
 
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        pass
+        """
+        Similar solution as problem 41 (first missing positive)
+        """
+        for idx, value in enumerate(nums):
+            while value <= len(nums) and value < len(nums):
+                tmp = nums[value]
+                nums[value] = float('inf')
+                value = tmp
+        # print(nums)
+        for idx, value in enumerate(nums):
+            if value != float("inf"):
+                return idx
+        return len(nums)
+
 
 # Input: nums = [3,0,1]
 # Output: 2
