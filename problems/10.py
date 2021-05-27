@@ -39,13 +39,23 @@ class Solution(object):
                             dp[row][col] = dp[row-1][col]
                 if s[row-1] == p[col-1] or p[col-1] == ".":
                     dp[row][col] = dp[row-1][col-1]
-        # for idx, lst in enumerate(dp):
-        #     print(idx)
-        #     print(lst)
+        for idx, lst in enumerate(dp):
+            print(idx)
+            print(lst)
         return dp[-1][-1]
 
 
-s = "aa"
-p = "a*"
+# s = "aa"
+# p = "a*"
+# s = "mississippi"
+# p = "mis*is*p*."
+s = "mississippi"
+p = "mis*is*ip*."
 res = Solution().isMatch(s, p)
 print(res)
+
+
+s_idx=8 p_idx=11
+
+'mississi'
+"mis*is*ip*."
