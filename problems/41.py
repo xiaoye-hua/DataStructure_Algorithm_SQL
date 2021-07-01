@@ -11,30 +11,66 @@ import string
 from src.linked_list.ListNode import ListNode
 from src.linked_list.LinkedList import LinkedList
 
+import copy
+
 
 class Solution:
-    def firstMissingPositive(self, nums: List[int]) -> int:
-        """
-        inspired from discussion https://leetcode.com/problems/first-missing-                   positive/discuss/231337/Python-solution
+    def trap(self, height: List[int]) -> int:
+        res = 0
+        begin_idx = 0
+        end_idx = len(height) - 1
+        max_height = 0
+        while begin_idx < end_idx:
+            if height[begin_idx] > max_height and height[end_idx] > max_height:
+                curr_height = min(height[begin_idx], height[end_idx])
+                inc = 0
+                for idx in range(begin_idx, end_idx+1):
+                    ele = height[idx]
+                    if ele >= curr_height:
+                        continue
+                    elif ele > max_height:
+                        inc += curr_height - ele
+                    else:
+                        inc += curr_height - max_height
 
-        idx  0 --> n-1
-        value 1 --> n+1
-        res --> 1 --> n+1
-        """
-        # first_missing = [False] * (len(nums) + 1)
-        for idx, value in enumerate(nums):
-            while value <= len(nums) and value > 0:
-                tmp = nums[value-1]
-                nums[value-1] = float('inf')
-                value = tmp
-        print(nums)
-        for idx, value in enumerate(nums):
-            if value != float("inf"):
-                return idx + 1
-        return idx + 1
+                # to_remove = sum([min(curr_height, height[idx]) for idx in range(begin_idx, end_idx+1)])
+                # inc = (max_height - curr_height) * (end_idx-begin_idx+1) - to_remove
+                # print('*'*8)
+                # print(height[begin_idx])
+                # print(height[end_idx])
+                # print(inc)
+                res += inc
+                max_height = curr_height
+
+            if height[begin_idx] < height[end_idx]:
+                begin_idx += 1
+            else:
+                end_idx -= 1
+        return res
 
 
-nums = [1, 2, 0]
-# Output: 2
-res = Solution().firstMissingPositive(nums)
+        #
+        # Input: height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+        # Output: 6
+        # Explanation: The
+        # above
+        # elevation
+        # map(black
+        # section) is represented
+        # by
+        # array[0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1].In
+        # this
+        # case, 6
+        # units
+        # of
+        # rain
+        # water(blue
+        # section) are
+        # being
+        # trapped.
+
+height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+res = Solution().trap(height)
 print(res)
+
+
