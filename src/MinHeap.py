@@ -13,9 +13,11 @@ class MinHeap:
                 complete tree, 2p and 2p+1 between parent and children
             2. order property:
                 parent is smaller that children
+
+        list_input: whether the input value is a list, if True, the first element of the list will be the key
         """
         self.lst = [0]
-        self.size = 0
+        self.size = 0  # size of heap
         self.list_input = list_input
 
     def push(self, value):
@@ -31,6 +33,11 @@ class MinHeap:
         return min_value
 
     def build_heap(self, lst):
+        """
+        Two methods to build from a entire list:
+            1. iterate and insert one by one：　O(nlogn)
+            2. start with the entire list: O(n)
+        """
         i = len(lst) // 2
         self.lst = [0] + lst[:]
         self.size = len(lst)
