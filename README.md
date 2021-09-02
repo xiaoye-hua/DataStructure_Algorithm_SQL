@@ -1,1 +1,1 @@
-# Playground for Leetcode
+# Playground for data structure, algorithm and SQL
