@@ -4,6 +4,9 @@
 - 2.Add Two Numbers (medium, dummy head): simple iteration
 - 3.Longest Substring Without Repeating Characters (medium, two pointers(sliding window), hash table): for ele record the biggest index for it; update begin index for sliding window every step
 - 21.Merge Two Sorted Lists (easy, dummy head)
+- 61.Rotate List (medium, two pointer): fast_pointer, slow_pointer; mind the copy function in Python
+    - fast = fast.next ==> only a reference, don't change the value
+    - fast.next = c  ==> change the value
 
 
 ## Array
@@ -34,6 +37,8 @@
     1. hash table stores info
 - 84.Largest Rectangle in Histogram (hard, stack):
     1. Refer to [Youtube video](https://www.youtube.com/watch?v=zx5Sw9130L0&feature=emb_logo)
+- 1423.Maximum Points You Can Obtain from Cards (medium, sliding window): need to go through several cases before finding the pattern
+- 75.Sort Colors (medium, sort): compared to normal sort question, there are only 3 unique numbers. So take advantage of it.
 
 
 ## Tree
@@ -57,6 +62,8 @@
         3. dp[i] = 1
         4. To update dp[idx], we'll iterate dp[:idx-1] 
     2. O(nlogn): dp[i] represents the smallest ending number for the subsequence with length i+i  (Refer to https://www.youtube.com/watch?v=l2rCz7skAlk)"
+- 53.Maximum Subarray (easy, dynamic programming): dp[i] represents the max length of array that end in at the index of i-1; return max(dp)
+
 
 
 ## Math
