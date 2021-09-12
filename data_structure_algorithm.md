@@ -7,6 +7,7 @@
 - 61.Rotate List (medium, two pointer): fast_pointer, slow_pointer; mind the copy function in Python
     - fast = fast.next ==> only a reference, don't change the value
     - fast.next = c  ==> change the value
+- 148.Sort List (medium, merge sort): apply merge sort to linked list
 
 
 ## Array
@@ -39,6 +40,7 @@
     1. Refer to [Youtube video](https://www.youtube.com/watch?v=zx5Sw9130L0&feature=emb_logo)
 - 1423.Maximum Points You Can Obtain from Cards (medium, sliding window): need to go through several cases before finding the pattern
 - 75.Sort Colors (medium, sort): compared to normal sort question, there are only 3 unique numbers. So take advantage of it.
+- 912.Sort an Array (medium, sort): quick sort
 
 
 ## Tree
