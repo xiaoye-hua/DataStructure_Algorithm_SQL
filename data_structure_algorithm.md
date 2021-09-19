@@ -9,7 +9,6 @@
     - fast.next = c  ==> change the value
 - 148.Sort List (medium, merge sort): apply merge sort to linked list
 
-
 ## Array
 
 
@@ -65,6 +64,7 @@
         4. To update dp[idx], we'll iterate dp[:idx-1] 
     2. O(nlogn): dp[i] represents the smallest ending number for the subsequence with length i+i  (Refer to https://www.youtube.com/watch?v=l2rCz7skAlk)"
 - 53.Maximum Subarray (easy, dynamic programming): dp[i] represents the max length of array that end in at the index of i-1; return max(dp)
+- 121.Best Time to Buy and Sell Stock (easy, dynamic programming): dp[i] represent the max profit until ith day; use min_cost to represent the min cost until now
 
 
 
