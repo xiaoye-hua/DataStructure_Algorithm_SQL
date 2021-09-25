@@ -12,23 +12,38 @@ from src.linked_list.ListNode import ListNode
 from src.linked_list.LinkedList import LinkedList
 
 import copy
-import bisect
 
 
-class Solution:
-    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        self.res = 0
-        self.res = max(self.res, self.parser_one_side(root, 0))
-        return self.res
 
-    self.parse_one_side(self, root: Optional[TreeNode], depth: int) -> int:
-    if root is None:
-        return depth
-    l = self.parse_one_side(root.left, 0)
-    r = self.parse_one_size(root.right, 0)
-    self.res = max(self.res, l + r)
-    return max(l, r)
+import heapq
+def moveZerosToEnd(arr):
+  zero_begin_idx = None
+  idx = 0
+  min_heap = []
+  while idx < len(arr):
+    # print('*'*20)
+    # print('idx:' + str(idx))
+    # print('Before:')
+    # print('Zeor idx is :' + str(zero_begin_idx))
+    #print('lst is: ' + str(lst))
+    if zero_begin_idx is None:
+      if arr[idx] == 0:
+        zero_begin_idx = idx
+    elif arr[idx] != 0:
+      arr[idx], arr[zero_begin_idx] = arr[zero_begin_idx], arr[idx]
+      heapq.heappush(min_heap, idx)
+      if len(min_heap) != 0:
+        zero_begin_idx = heapq.heappop(min_heap)
+      else:
+        zero_begin_idx = idx
+    elif arr[idx] == 0:
+      heapq.heappush(min_heap, idx)
+    idx += 1
+  return arr
 
 
-res = Solution().longestObstacleCourseAtEachPosition([3,1,5,6,4,2])
+arr = [0,1,2,3,0,0,1,1,6,4,1]
+
+res = moveZerosToEnd(arr)
+
 print(res)

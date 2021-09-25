@@ -10,36 +10,42 @@
 - 148.Sort List (medium, merge sort): apply merge sort to linked list
 
 ## Array
-
-
-- 560.Subarray Sum Equals K (medium, hash table): hash table is used to record the appearance time of sum
-- 523.Continuous Subarray Sum (medium, hash table): hash table is used to record appearance index of sum % k; n1%k = n1%k => abs(n1-n2) = n*k
-- 525.Contiguous Array (medium, hash table): array lst consists of -1 and 1, if sum(lst[:a]) == sum(lst[:b]) => lst[a:b+1] consists of same number of -1 and 1
-- 567.Permutation in String (medium, hash table): use hash table to compare permutation
-- 16.3Sum Closest (medium, hash table): sort then enumerate
-- 189.Rotate Array (medium, two pointers)
-- 31.Next Permutation (medium, two pointers): 
+- [560.Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) (medium, hash table): hash table is used to record the appearance time of sum
+- 523.Continuous Subarray Sum (medium, hash table): hash table is used to record appearance index of sum % k; n1%k = n2%k => abs(n1-n2) = n*k
+- [525.Contiguous Array](https://leetcode.com/problems/contiguous-array/) (medium, hash table): array lst consists of -1 and 1, if sum(lst[:a]) == sum(lst[:b]) => lst[a:b+1] consists of same number of -1 and 1
+- [567.Permutation in String](https://leetcode.com/problems/permutation-in-string/) (medium, hash table): use hash table to compare permutation
+- [1.Two Sum](https://leetcode.com/problems/two-sum/) (easy, hash table)
+- [167.Two Sum II - Input Array is Sort](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) (easy, two pointers)
+- []()
+- [16.3Sum Closest](https://leetcode.com/problems/3sum-closest/) (medium, hash table): sort then enumerate
+- [189.Rotate Array](https://leetcode.com/problems/rotate-array/) (medium, two pointers)
+- [31.Next Permutation](https://leetcode.com/problems/next-permutation/) (medium, two pointers): 
     1. inspired from discussion: https://leetcode.com/problems/next-permutation/discuss/229211/Python-solution
     2. Two steps:
         1. find index a, change nums[a] to a bigger number --> we can only find the target number on the right of index a (Otherwise, the whole number will be smaller)
         2. change nums[a+1:] to the smallest number
-- 41.First Missing Positive (hard, hash table): utilize the original list to store the information as a hash table
-- 54.Spiral Matrix (medium): mind the corner cases
-- 11.Container With Most Water (medium, greedy, two pointers):
-    1. Why move the index of the shoter one: Prove: Assume height[right_idx]>height[left_idx], if we move right_idx to left
+- [41.First Missing Positive](https://leetcode.com/problems/first-missing-positive/) (hard, hash table): utilize the original list to store the information as a hash table
+- [54.Spiral Matrix](https://leetcode.com/problems/spiral-matrix/) (medium): mind the corner cases
+- [11.Container With Most Water](https://leetcode.com/problems/container-with-most-water/) (medium, greedy, two pointers):
+    1. Why move the index of the shorter one: Prove: Assume height[right_idx]>height[left_idx], if we move right_idx to left
         1. if height[right_idx-1]>height[right_idx], the height of area is determined
             by height[left_idx], but width decreases by one  --> the area will decrease
         2. if height[right_idx -1]< height[right_idx], the height might decreased, 
             while the width decrease by one --> the area will decrease
-- 76.Minimum Window Substring (hard, hash table, sliding windows): 
+- [76.Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) (hard, hash table, sliding windows): 
     1. Inspired from problem 209
-- 209.Minimum Size Subarray Sum (medium, hash table, sliding windows)
+- [209.Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) (medium, hash table, sliding windows)
     1. hash table stores info
-- 84.Largest Rectangle in Histogram (hard, stack):
+- [84.Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) (hard, stack):
     1. Refer to [Youtube video](https://www.youtube.com/watch?v=zx5Sw9130L0&feature=emb_logo)
 - 1423.Maximum Points You Can Obtain from Cards (medium, sliding window): need to go through several cases before finding the pattern
 - 75.Sort Colors (medium, sort): compared to normal sort question, there are only 3 unique numbers. So take advantage of it.
 - 912.Sort an Array (medium, sort): quick sort
+- 283.Move Zeroes (easy, two pointers): max_non_zero_pointer & min_zero_pointer, two scenerios to swap: [...min_zero_pointer, max_non_zero_pointer....], [...min_zero_pointer, 0, 0, max_non_zero_pointer....]  --> max_non_zero_idx = min_zero_idx; min_zero_idx += 1
+- [20.Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) (easy, stack): use stack or use a number to record the number of unpaired opening bracket(this number should be always equals or bigger than 0)
+- [678.Valid Parentheses String](https://leetcode.com/problems/valid-parenthesis-string/) (medium): similar idea with problem 20; 
+    - Due the addition of "*" mark, instead of number of opening bracket, we record the number range of opening bracket; 
+    - one thing that should be kept in mind: for the valid parentheses the number of unpaired opening bracket should never be smaller than 0 -> min_left_left = max(0, min_left_left-1) 
 
 
 ## Tree

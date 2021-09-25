@@ -5,3 +5,6 @@
 3. 180.Consecutive Numbers (medium, lag & lead): lag & lead to get the previous row and next row
 4. 178.Rank Scores (medium, dense_rank): easy for hive-sql and mysql-server because of dense_rank -> consecutive rank and same values have the same rank
 5. 184.Department Highest Salary (medium, rank)
+6. 626.Exchange Seats (medium, case clause, over clause)
+7. 185.Department Top Three Salaries (hard, dense_rank): similar to 184
+262. Trips and Users (hard ): mysql中下面行不通： round(sum(if(status!='completed', 1, 0))/count(1), 2) as cancellation rate
