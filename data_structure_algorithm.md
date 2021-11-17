@@ -54,7 +54,9 @@
 - 112.Path Sum (easy, DFS): root-to-leaf sum
 - 543.Diameter of Binary Tree (easy, DFS): if root.left is None => l = 0; else: l = left_len+1
 - 110.Balanced Binary Tree (medium, DFS): similar to problem 543, two values are returned
-- 98.Validate Binary Search Tree (medium, DFS)
+- 98.Validate Binary Search Tree (medium, DFS, binary search tree)
+- [230.Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) (medium, tree tranvers, binary )
+
 
 
 ## Dynamic Programming
