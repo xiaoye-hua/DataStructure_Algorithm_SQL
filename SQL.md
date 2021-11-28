@@ -14,3 +14,5 @@ Use mysql-server
 2. [contest leadboard](https://www.hackerrank.com/challenges/contest-leaderboard/problem?isFullScreen=true): (medium, 10min) row_number
 3. [ ] [x]1st [SQL project planning](https://www.hackerrank.com/challenges/sql-projects/problem?isFullScreen=true): (medium, 30min) consecutive days
 4. [ ] [15 Days of Learning SQL](https://www.hackerrank.com/challenges/15-days-of-learning-sql/problem?isFullScreen=true): (hard, )  unique hackers who made at least  submission each day (starting on the first day of the contest)
+4. [Placement](https://www.hackerrank.com/challenges/placements/problem?isFullScreen=true): (medium)
+3. [Symmetric Pair](https://www.hackerrank.com/challenges/symmetric-pairs/problem?isFullScreen=true): (medium)
