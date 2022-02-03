@@ -37,5 +37,8 @@ Order by frequency
     1. inspired from [窗口函数解法](https://leetcode-cn.com/problems/human-traffic-of-stadium/solution/chuang-kou-han-shu-jie-fa-by-you-dao-3-3g6c/)
 16. [596. Classes More Than 5 Students](https://leetcode-cn.com/problems/classes-more-than-5-students/) (easy) simple group 
 17. [1097. Game Play Analysis V](https://leetcode-cn.com/problems/game-play-analysis-v/) (hard)
+18. [620. Not Boring Movies](https://leetcode-cn.com/problems/not-boring-movies/) (easy): simple filter, order
+19. [ ] [569. Median Employee Salary](https://leetcode-cn.com/problems/median-employee-salary/) (hard, windows functions)
+20. [577. Employee Bonus](https://leetcode-cn.com/problems/employee-bonus/) (simple): simple filter
 
 

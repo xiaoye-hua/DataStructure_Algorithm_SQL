@@ -2,6 +2,8 @@
 
 ## String
 
+- [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/) (easy)
+
 
 
 ## Linked List
@@ -12,6 +14,8 @@
     - fast = fast.next ==> only a reference, don't change the value
     - fast.next = c  ==> change the value
 - 148.Sort List (medium, merge sort): apply merge sort to linked list
+- [ ] [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/): (medium, linked list)
+
 
 ## Array
 - [560.Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/) (medium, hash table): hash table is used to record the appearance time of sum
@@ -54,6 +58,8 @@
 - [678.Valid Parentheses String](https://leetcode.com/problems/valid-parenthesis-string/) (medium): similar idea with problem 20; 
     - Due the addition of "*" mark, instead of number of opening bracket, we record the number range of opening bracket; 
     - one thing that should be kept in mind: for the valid parentheses the number of unpaired opening bracket should never be smaller than 0 -> min_left_left = max(0, min_left_left-1)
+- [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) (easy, stack)
+
 ### Sorting
 - [451.Sort Characters By Frequency](https://leetcode.com/problems/sort-characters-by-frequency/) (medium, sorting): sorting algorithm with special comparing methods
 
@@ -80,6 +86,11 @@
     2. O(nlogn): dp[i] represents the smallest ending number for the subsequence with length i+i  (Refer to https://www.youtube.com/watch?v=l2rCz7skAlk)"
 - [121.Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) (easy, dynamic programming): dp[i] represent the max profit until ith day; use min_cost to represent the min cost until now
 - 10.Regular Expression Matching (hard, dynamic programming)
+- [ ] [32.Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/) (hard, dynamic programming): (based on https://leetcode.com/problems/longest-valid-parentheses/discuss/14312/My-ten-lines-python-solution)
+    1. dp[i+1] represents the longest length that ends in the position of i; 
+    2. transition function: dp[i+1] = i-p+1+dp[p]
+        1. p represents the position of '(' that matches current ')' which is stored with a stack.
+ 
 
 
 ## Greedy

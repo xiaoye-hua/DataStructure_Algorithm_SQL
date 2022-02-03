@@ -13,37 +13,18 @@ from src.linked_list.LinkedList import LinkedList
 
 import copy
 
+test = {"headers": ["id", "company", "salary"], "values": [[169, "Apple", 58032], [864, "Apple", 57868], [995, "Dropbox", 61412], [1018, "Facebook", 54162], [610, "Facebook", 53971], [119, "Google", 56281], [1008, "Snapchat", 56604], [106, "Wechat", 52150]]}
 
 
-import heapq
-def moveZerosToEnd(arr):
-  zero_begin_idx = None
-  idx = 0
-  min_heap = []
-  while idx < len(arr):
-    # print('*'*20)
-    # print('idx:' + str(idx))
-    # print('Before:')
-    # print('Zeor idx is :' + str(zero_begin_idx))
-    #print('lst is: ' + str(lst))
-    if zero_begin_idx is None:
-      if arr[idx] == 0:
-        zero_begin_idx = idx
-    elif arr[idx] != 0:
-      arr[idx], arr[zero_begin_idx] = arr[zero_begin_idx], arr[idx]
-      heapq.heappush(min_heap, idx)
-      if len(min_heap) != 0:
-        zero_begin_idx = heapq.heappop(min_heap)
-      else:
-        zero_begin_idx = idx
-    elif arr[idx] == 0:
-      heapq.heappush(min_heap, idx)
-    idx += 1
-  return arr
+gd = {"headers":["id","company","salary"],"values":[[348,"Amazon",54836],[780,"Amazon",54861],[864,"Apple",57868],[169,"Apple",58032],[1938,"Baidu",49984],[1445,"Baidu",50677],[995,"Dropbox",61412],[610,"Facebook",53971],[1018,"Facebook",54162],[119,"Google",56281],[1804,"Linked",59707],[1131,"Linked",59887],[745,"Pinterest",53822],[843,"Pinterest",54620],[1008,"Snapchat",56604],[106,"Wechat",52150]]}
 
 
-arr = [0,1,2,3,0,0,1,1,6,4,1]
+import pandas as pd
 
-res = moveZerosToEnd(arr)
+test_df = pd.DataFrame(test['values'])
+gd_df = pd.DataFrame(gd['values'])
 
-print(res)
+print(test_df.sort_values(by=[1, 2]))
+print(gd_df.sort_values(by=[1, 2]))
+
+print()
